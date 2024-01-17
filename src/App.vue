@@ -1,30 +1,44 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
+<script>
 
-<template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
-</template>
+/*
+ Utilizzo un componente dentro ad un altro
+ Seguo tre passaggi:
+ 1) importazione nome del file
+ 2) Dichiarazione del componente all'interno dell'oggetto
+ 3) Utilizzo del componente
+*/
+    // IMPORTO IL NOME DEL FILE (non l'ho ancora creato ma AppTitle sarà il nome)
+import AppTitle from './components/AppTitle.vue';
+
+
+export default {
+  data() {
+    return {
+        title: 'Prova stampa in pagina '
+    };
+  },
+  // 2) Dichiarazione dei componenti 
+  components: {
+    AppTitle
+  }
+};
+
+
+    </script>
+
+    <template>
+
+<!-- SCRIVERE SEMPRE FRA I DIV, SIA STRINGE IMPORTATE CHE CODICE SCRITTO DIRETTAMENTE QUI -->
+    <div>  
+        <!-- 3)Utilizzo del componenete -->
+        <AppTitle/>
+
+        {{ title }}
+
+    </div>
+  
+    </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
 </style>
